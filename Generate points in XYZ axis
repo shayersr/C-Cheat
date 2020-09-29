@@ -1,0 +1,37 @@
+private void RunScript(double xptCount, 
+                        int yptCount, 
+                        int zptCount, 
+                        double x, 
+                        double y, 
+                        double z, 
+                        double xSpacing, 
+                        double ySpacing, 
+                        double zSpacing, 
+                        ref object totalPoints, 
+                        ref object Count_in_Axis)
+  {
+    //empty list
+    List<Point3d> pts = new List<Point3d>();
+
+    for (int i = 0; i < xptCount; i = i + 1)  //point count in x axis
+    {
+      for (int j = 0; j < yptCount; j = j + 1)  //point count in y axis
+      {
+        for (int k = 0; k < zptCount; k = k + 1)  //point count in z axis
+        {
+          Point3d pt = new Point3d(x + (i * xSpacing), y + (j * ySpacing), z + (k * zSpacing));
+          pts.Add(pt);
+        }
+      }
+    }
+    totalPoints = pts;
+
+    //Converting point count into strings
+    string Count_in_X = xptCount.ToString();
+    string Count_in_Y = yptCount.ToString();
+    string Count_in_Z = zptCount.ToString();
+
+    //creating a list of strings
+    string[] Axis = {Count_in_X, Count_in_Y, Count_in_Z};
+    Count_in_Axis = Axis;
+  }
