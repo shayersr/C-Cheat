@@ -1,0 +1,11 @@
+private void Runscript(int num, double x, double y, double z, ref object A)
+{
+ List<Point3d> pts = new List<Point3d>();
+
+ for (int i = 0; i < num; i++)
+ {
+     Point3d pt = new Point3d(x + i, y, z);
+     pts.Add(pt);
+ }   
+ A = pts;
+}
