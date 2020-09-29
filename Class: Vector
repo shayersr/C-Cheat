@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    public class Vector
+    {
+        //PROPERTIES
+        public double X;
+        public double Y;
+        public double Z;
+
+        //CONSTRUCTOR
+        public Vector(double x, double y, double z)
+        {
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+        }
+
+        //INSTANCE METHODS
+        public double GetLength()
+        {
+            double len = Math.Sqrt(this.X * this.X + this.Y * this.Y + this.Z * this.Z);
+            return len;
+        }
+
+        public void Scale(double factor)
+        {
+            this.X *= factor;
+            this.Y *= factor;
+            this.Z *= factor;
+        }
+
+        public void Unitize()
+        {
+            double len = this.GetLength();
+            this.X /= len;
+            this.Y /= len;
+            this.Z /= len;
+        }
+
+        public override string ToString()
+        {
+            string str = "("+ this.X + this.Y + this.Z + ")";
+            return str;
+        }
+
+        //CLASS METHOD
+        public static double DotProduct(Vector a, Vector b)
+        {
+            double dot = a.X * b.X + a.Y * b.Y + a.Z * a.Z;
+            return dot;
+        }
+
+
+    }
+}
